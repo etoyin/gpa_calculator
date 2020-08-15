@@ -11,6 +11,13 @@ app.use(bodyParser.json());
 
 app.use("/api/calculate", router);
 
+if(process.env.NODE_ENV == "production"){
+  app.use(express.static(path.join(__dirname, "./client/build")));
+  app.use((req, res) => {
+    res.sendFile(path.join(__dirname, "./client/build/index.html"));
+  })
+}
+
 const PORT = 8080 || process.env.PORT;
 
 app.listen(PORT, () => {

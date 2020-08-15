@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "nodemon server",
-    "client": "npm start --prefix client"
+    "client": "npm start --prefix client",
+    "start": "node server",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "author": "Adesina Oluwatoyin",
   "license": "ISC",
